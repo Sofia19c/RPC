@@ -1,0 +1,18 @@
+//haras una suma
+
+syntax = "proto3";
+
+package calculator; 
+
+service SumaService {
+    rpc Sumar(SumarRequest) returns (SumaResponse) {}
+}
+
+message SumarRequest{
+    int32 numero1 = 1;
+    int32 numero2 = 2;
+}
+
+message SumaResponse{
+    int32 resultado = 1;
+}
