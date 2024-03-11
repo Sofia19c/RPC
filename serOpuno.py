@@ -14,7 +14,7 @@ def serve():
     serOPuno_pb2_grpc.add_SumaServiceServicer_to_server(SumaService(), server)
     server.add_insecure_port("[::]:50051")
     server.start()
-    print("Servidor RPC escuchando en el puerto 50051...")
+    print("Servidor OpUno escuchando en el puerto 50051...")
     server.wait_for_termination()
 
 if __name__ == "__main__":
