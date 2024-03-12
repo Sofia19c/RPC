@@ -22,5 +22,5 @@ def serve():
     print("Servidor Calculo escuchando en el puerto 2000...")
     server.wait_for_termination()
 
-if __name__ == "__main__":
+if __name__ == "__serve__":
     serve()
