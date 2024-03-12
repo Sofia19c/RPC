@@ -13,5 +13,5 @@ def cliente(self, request):
     response = stub.Calculo(serCalculo_pb2.calculoRequest(numero1, numero2, numero3, numero4))
     print("El resultado de la operacion es: ", response.resultado)
 
-if __name__ == "__cliente__":
+if __name__ == "__main__":
     cliente()
