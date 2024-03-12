@@ -12,7 +12,7 @@ class CalculoService(serCalculo_pb2_grpc.calculo):
         stub = serOPuno_pb2_grpc.SumaServiceStub(canal)
         response = stub.Sumar(serOPuno_pb2.SumarRequest(numero1= request.numero1, numero2= request.numero2))
         print("El resultado de la suma es:", response.resultado)
-        return serCalculo_pb2.CalculoService(resultado = response.resultado)
+        return serCalculo_pb2.calculoResponse(resultado = response.resultado)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
