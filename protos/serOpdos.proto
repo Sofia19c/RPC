@@ -1,0 +1,18 @@
+//haras una resta
+
+syntax = "proto3";
+
+package calculator;
+
+service RestaService{
+    rpc Resta(RestaRequest) returns (RestaResponse) {}
+}
+
+message RestaRequest{
+    int32 numero3 = 1;
+    int32 numero4 = 2;
+}
+
+message RestaResponse{
+    int32 resultado = 1;
+}
