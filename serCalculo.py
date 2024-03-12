@@ -11,16 +11,16 @@ import serOPdos_pb2
 class CalculoService(serCalculo_pb2_grpc.calculo):
     def Calculo(self, request, context):
         canalUno = grpc.insecure_channel("localhost:50051")
-        stub = serOPuno_pb2_grpc.SumaServiceStub(canalUno)
-        response = stub.Sumar(serOPuno_pb2.SumarRequest(numero1= request.numero1, numero2= request.numero2))
-        print("El resultado de la suma es:", response.resultado)
+        stubUno = serOPuno_pb2_grpc.SumaServiceStub(canalUno)
+        responseSuma = stubUno.Sumar(serOPuno_pb2.SumarRequest(numero1= request.numero1, numero2= request.numero2))
+        print("El resultado de la suma es:", responseSuma.resultado)
     
         canalDos = grpc.insecure_channel("localhost:3000")
-        stub = serOPdos_pb2_grpc.RestaServiceStub(canalDos)
-        response = stub.Resta(serOPdos_pb2.RestaRequest(numero3=request.numero3, numero4=request.numero4))
-        print("El resultado de la resta es:", response.resultado)
+        stubDos = serOPdos_pb2_grpc.RestaServiceStub(canalDos)
+        responseResta = stubDos.Resta(serOPdos_pb2.RestaRequest(numero3=request.numero3, numero4=request.numero4))
+        print("El resultado de la resta es:", responseResta.resultado)
     
-        return serCalculo_pb2.calculoResponse(resultado = response.resultado)
+        return serCalculo_pb2.calculoResponse(resultado = responseSuma.resultado * responseResta.resultado)
  
 
         
