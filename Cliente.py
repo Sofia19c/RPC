@@ -3,10 +3,10 @@ import serCalculo_pb2
 import serCalculo_pb2_grpc
 
 def cliente():
-    n1 = int(input("Por favor, introduce el primer numero"))
-    n2 = int(input("Por favor, introduce el segundo numero"))
-    n3 = int(input("Por favor, introduce el tercer numero"))
-    n4 = int(input("Por favor, introduce el cuarto numero"))
+    n1 = int(input("Por favor, introduce el primer numero: "))
+    n2 = int(input("Por favor, introduce el segundo numero: "))
+    n3 = int(input("Por favor, introduce el tercer numero: "))
+    n4 = int(input("Por favor, introduce el cuarto numero: "))
 
     canal = grpc.insecure_channel("localhost:2000")
     stub = serCalculo_pb2_grpc.calculoStub(canal)
